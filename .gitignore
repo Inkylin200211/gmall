@@ -4,6 +4,14 @@
 # Log file
 *.log
 
+#过滤上传的文件
+.idea
+**/.mvn
+**/mvnw.cmd
+**/mvnw
+**/target/
+**/.gitignore
+
 # BlueJ files
 *.ctxt
 
