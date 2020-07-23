@@ -12,7 +12,11 @@
     <groupId>com.atguigu.gmall</groupId>
     <artifactId>gmall-common</artifactId>
     <description>子服务的公共依赖</description>
+
+
+
     <dependencies>
+
         <!--        mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -63,6 +67,18 @@
 <!--            <scope>compile</scope>-->
 <!--        </dependency>-->
 
+
+<!--        服务发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+<!--        服务配置-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
 
     </dependencies>
 

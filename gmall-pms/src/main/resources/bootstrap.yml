@@ -1,0 +1,19 @@
+
+
+spring:
+  application:
+    name: pms-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.42.62:8848
+        namespace: cd838243-6a17-438e-bfe1-6e937a637cef
+        group: dev #默认加载的文件的分组
+        file-extension: yml  # 默认找服务名.properties文件
+
+        #无论是否读取多个配置文件,都会默认读取服务名+properties的文件
+        ext-config:
+        - data-id: pms-service-datasource.yml #1.基本配置
+          refresh: true
+          group: dev
+

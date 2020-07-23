@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.atguigu.gmall.ums.entity.UserEntity;
+import com.atguigu.gmall.ums.feign.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +32,20 @@ import com.atguigu.common.utils.R;
 public class GrowthHistoryController {
     @Autowired
     private GrowthHistoryService growthHistoryService;
+
+    @Autowired
+    SmsService smsService;
+
+    @RequestMapping("/men")
+    public R useraddo(){
+//        远程调用商品服务
+        R addbrand = smsService.addbrand();
+
+
+        return R.ok().put("result", addbrand.get("result"));
+    }
+
+
 
     /**
      * 列表

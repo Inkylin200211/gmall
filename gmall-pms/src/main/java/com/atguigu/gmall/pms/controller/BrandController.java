@@ -31,6 +31,21 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
+
+
+    @RequestMapping("/add")
+    public R addbrand(){
+//        添加品牌
+        BrandEntity entity = new BrandEntity();
+        entity.setName("华为荣耀");
+        boolean save = brandService.save(entity);
+
+        return R.ok().put("result", save);
+
+    }
+
+
+
     /**
      * 列表
      */
