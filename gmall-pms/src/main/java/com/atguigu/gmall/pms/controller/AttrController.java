@@ -23,7 +23,7 @@ import com.atguigu.common.utils.R;
  *
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:11:34
+ * @date 2020-07-24 17:57:24
  */
 @RestController
 @RequestMapping("pms/attr")
@@ -46,10 +46,10 @@ public class AttrController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @RequestMapping("/info/{attrId}")
     //@RequiresPermissions("pms:attr:info")
-    public R info(@PathVariable("id") Long id){
-		AttrEntity attr = attrService.getById(id);
+    public R info(@PathVariable("attrId") Long attrId){
+		AttrEntity attr = attrService.getById(attrId);
 
         return R.ok().put("attr", attr);
     }
@@ -81,8 +81,8 @@ public class AttrController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("pms:attr:delete")
-    public R delete(@RequestBody Long[] ids){
-		attrService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] attrIds){
+		attrService.removeByIds(Arrays.asList(attrIds));
 
         return R.ok();
     }

@@ -23,7 +23,7 @@ import com.atguigu.common.utils.R;
  *
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:11:34
+ * @date 2020-07-24 17:57:24
  */
 @RestController
 @RequestMapping("pms/skuimages")

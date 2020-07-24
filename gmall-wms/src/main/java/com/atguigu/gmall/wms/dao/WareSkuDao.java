@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:06:15
+ * @date 2020-07-24 18:00:13
  */
 @Mapper
 public interface WareSkuDao extends BaseMapper<WareSkuEntity> {

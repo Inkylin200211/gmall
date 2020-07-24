@@ -23,7 +23,7 @@ import com.atguigu.common.utils.R;
  *
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:11:34
+ * @date 2020-07-24 17:57:24
  */
 @RestController
 @RequestMapping("pms/attrgroup")
@@ -46,10 +46,10 @@ public class AttrGroupController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @RequestMapping("/info/{attrGroupId}")
     //@RequiresPermissions("pms:attrgroup:info")
-    public R info(@PathVariable("id") Long id){
-		AttrGroupEntity attrGroup = attrGroupService.getById(id);
+    public R info(@PathVariable("attrGroupId") Long attrGroupId){
+		AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);
 
         return R.ok().put("attrGroup", attrGroup);
     }
@@ -81,8 +81,8 @@ public class AttrGroupController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("pms:attrgroup:delete")
-    public R delete(@RequestBody Long[] ids){
-		attrGroupService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] attrGroupIds){
+		attrGroupService.removeByIds(Arrays.asList(attrGroupIds));
 
         return R.ok();
     }

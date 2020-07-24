@@ -1,6 +1,7 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -23,10 +24,10 @@ import com.atguigu.common.utils.R;
  *
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:11:34
+ * @date 2020-07-24 17:57:24
  */
 @RestController
-@RequestMapping("pms/category")
+@RequestMapping("product/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -34,24 +35,24 @@ public class CategoryController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @RequestMapping("/QueryWithTree")
     //@RequiresPermissions("pms:category:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+        List<CategoryEntity> entities = categoryService.listWithTree();
 
-        return R.ok().put("page", page);
+        return R.ok().put("tree", entities);
     }
 
 
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @RequestMapping("/info/{catId}")
     //@RequiresPermissions("pms:category:info")
-    public R info(@PathVariable("id") Long id){
-		CategoryEntity category = categoryService.getById(id);
+    public R info(@PathVariable("catId") Long catId){
+		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**
@@ -65,14 +66,21 @@ public class CategoryController {
         return R.ok();
     }
 
+    @RequestMapping("/update/sort")
+    //@RequiresPermissions("product:category:update")
+    public R updateSort(@RequestBody CategoryEntity[] category){
+        categoryService.updateBatchById(Arrays.asList(category));
+        return R.ok();
+    }
+
+
     /**
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("pms:category:update")
+    //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
-
+        categoryService.updateCascade(category);
         return R.ok();
     }
 
@@ -81,9 +89,9 @@ public class CategoryController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("pms:category:delete")
-    public R delete(@RequestBody Long[] ids){
-		categoryService.removeByIds(Arrays.asList(ids));
-
+    public R delete(@RequestBody Long[] catIds){
+//		categoryService.removeByIds(Arrays.asList(catIds));
+        categoryService.removeMenuByIds(Arrays.asList(catIds));
         return R.ok();
     }
 

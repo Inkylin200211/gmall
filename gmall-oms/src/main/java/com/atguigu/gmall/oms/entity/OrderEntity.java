@@ -13,7 +13,7 @@ import lombok.Data;
  * 
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:10:18
+ * @date 2020-07-24 17:55:59
  */
 @Data
 @TableName("oms_order")
@@ -28,7 +28,7 @@ public class OrderEntity implements Serializable {
 	/**
 	 * member_id
 	 */
-	private Long userId;
+	private Long memberId;
 	/**
 	 * 订单号
 	 */
@@ -38,13 +38,13 @@ public class OrderEntity implements Serializable {
 	 */
 	private Long couponId;
 	/**
-	 * 创建时间
+	 * create_time
 	 */
 	private Date createTime;
 	/**
 	 * 用户名
 	 */
-	private String username;
+	private String memberUsername;
 	/**
 	 * 订单总额
 	 */
@@ -152,7 +152,11 @@ public class OrderEntity implements Serializable {
 	/**
 	 * 详细地址
 	 */
-	private String receiverAddress;
+	private String receiverDetailAddress;
+	/**
+	 * 订单备注
+	 */
+	private String note;
 	/**
 	 * 确认收货状态[0->未确认；1->已确认]
 	 */
@@ -185,9 +189,5 @@ public class OrderEntity implements Serializable {
 	 * 修改时间
 	 */
 	private Date modifyTime;
-	/**
-	 * 订单备注
-	 */
-	private String remark;
 
 }

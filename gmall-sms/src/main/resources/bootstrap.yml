@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: sem-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.42.62:8848
+        namespace: 0be0f9f9-3ef8-41fd-9d5a-920e96d7fc33
+        group: dev #默认加载的文件的分组
+        file-extension: yml  # 默认找服务名.properties文件
+
+
+

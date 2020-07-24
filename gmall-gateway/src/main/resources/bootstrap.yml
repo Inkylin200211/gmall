@@ -1,0 +1,16 @@
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.42.62:8848
+        namespace: ce0746cc-726b-44aa-9620-3ca2e51fb7ef
+        file-extension: yml
+        group: dev
+
+#        ext-config:
+#        - data-id: assert.yml #1.断言配置
+#          refresh: true
+#          group: dev

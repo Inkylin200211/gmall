@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ums-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.42.62:8848
+        namespace: 5bf2f629-0f77-4685-8a72-ed492a6bb215
+        group: dev #默认加载的文件的分组
+        file-extension: yml  # 默认找服务名.properties文件
+
+
+

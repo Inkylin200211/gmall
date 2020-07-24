@@ -17,3 +17,6 @@ spring:
           refresh: true
           group: dev
 
+logging:
+  level:
+    com.atguigu.gulimall: debug

@@ -23,28 +23,13 @@ import com.atguigu.common.utils.R;
  *
  * @author kylin
  * @email kylin@gmail.com
- * @date 2020-07-22 12:11:34
+ * @date 2020-07-24 17:57:24
  */
 @RestController
 @RequestMapping("pms/brand")
 public class BrandController {
     @Autowired
     private BrandService brandService;
-
-
-
-    @RequestMapping("/add")
-    public R addbrand(){
-//        添加品牌
-        BrandEntity entity = new BrandEntity();
-        entity.setName("华为荣耀");
-        boolean save = brandService.save(entity);
-
-        return R.ok().put("result", save);
-
-    }
-
-
 
     /**
      * 列表
@@ -61,10 +46,10 @@ public class BrandController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @RequestMapping("/info/{brandId}")
     //@RequiresPermissions("pms:brand:info")
-    public R info(@PathVariable("id") Long id){
-		BrandEntity brand = brandService.getById(id);
+    public R info(@PathVariable("brandId") Long brandId){
+		BrandEntity brand = brandService.getById(brandId);
 
         return R.ok().put("brand", brand);
     }
@@ -96,8 +81,8 @@ public class BrandController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("pms:brand:delete")
-    public R delete(@RequestBody Long[] ids){
-		brandService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] brandIds){
+		brandService.removeByIds(Arrays.asList(brandIds));
 
         return R.ok();
     }

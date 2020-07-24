@@ -1,0 +1,14 @@
+
+
+spring:
+  application:
+    name: oms-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.42.62:8848
+        namespace: ca0564c7-8432-4c44-98ab-1fbe33a5fb5f
+        group: dev #默认加载的文件的分组
+        file-extension: yml  # 默认找服务名.properties文件
+
+
